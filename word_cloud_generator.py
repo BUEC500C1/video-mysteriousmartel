@@ -4,8 +4,7 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
 '''For the image generation, a word cloud is made for each
-   set of tweets per day. Every day will have one word cloud,
-   and there will be seven images for the week.'''
+   tweet per day'''
 
 def cloudGenerate(fileName):
 
