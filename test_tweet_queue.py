@@ -6,7 +6,7 @@ import json
 
 def test_tweet_queue():
   try:
-    keyFile = pathlib.Path("keys.key")
+    keyFile = pathlib.Path("keys")
     if keyFile.exists():
       Handles = ['MBTA','qikipedia','dog_rates','IvePetThatDog','GameGrumps','IBM']
       Cycles = [2,3,4,3,2,3]
