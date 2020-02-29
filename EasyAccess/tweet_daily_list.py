@@ -51,4 +51,3 @@ def maxIDsearch(userHandle):
   maxID = tweets[0].id
 
   return maxID
-  

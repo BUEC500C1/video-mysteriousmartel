@@ -38,4 +38,5 @@ def cloudGenerate(statusList,userHandle,dateRange,indexCount):
   write.text((x,y),date,fill=fontcolor,font=font)
 
   image.save(imageName)
+
   

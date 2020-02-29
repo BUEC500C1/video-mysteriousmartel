@@ -18,4 +18,3 @@ def videoConvert(userHandle):
     .output(tweetVid).run()
     )
   return out
-  

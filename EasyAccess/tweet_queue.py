@@ -39,16 +39,19 @@ def queueMove():
   videoConvert(user[0])
   print(str(user[0]) + ' has a video ready to view')
 
+def main(handles, cycles):
+  handleList = handles
+  cycleList = cycles
+  threadList = []
+  for i in range(len(handleList)):
+    fiber = threading.Thread(target=twitterQueueUp, args=(handleList[i],cycleList[i],))
+    threadList.append(fiber)
+    fiber.start()
+
+  for fiber in threadList:
+    fiber.join()
   
 if __name__ == "__main__":
-    handleList = ['MBTA','qikipedia','dog_rates','IvePetThatDog','GameGrumps','IBM']
-    cycleList = [2,3,4,3,2,3]
-    threadList = []
-    for i in range(len(handleList)):
-      fiber = threading.Thread(target=twitterQueueUp, args=(handleList[i],cycleList[i],))
-      threadList.append(fiber)
-      fiber.start()
-
-    for fiber in threadList:
-      fiber.join()
-      
+  practiceHandles = ['MBTA','qikipedia','dog_rates','IvePetThatDog','GameGrumps','IBM']
+  practiceCycles = [2,3,4,3,2,3]
+  main(practiceHandles,practiceCycles)
