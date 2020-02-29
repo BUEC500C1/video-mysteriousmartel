@@ -9,8 +9,6 @@ from PIL import Image, ImageDraw, ImageFont
 
 def cloudGenerate(statusList,userHandle,dateRange,indexCount):
 
-  # get data directory (using getcwd() is needed to support running example in generated IPython notebook)
-  # directory = path.dirname(__file__) if "__file__" in locals() else os.getcwd()
   if not os.path.isdir(userHandle + '_DailyTweets'):
     os.mkdir(userHandle + '_DailyTweets')
 
@@ -40,3 +38,4 @@ def cloudGenerate(statusList,userHandle,dateRange,indexCount):
   write.text((x,y),date,fill=fontcolor,font=font)
 
   image.save(imageName)
+
