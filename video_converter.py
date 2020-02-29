@@ -10,11 +10,10 @@ def videoConvert(userHandle):
 
   videoPath = userHandle + '_Video/'
   imagePath = os.getcwd() + '/' + userHandle + '_DailyTweets/'
-  inputImage = imagePath + '*.png'
+  inputImage = imagePath + '*.jpg'
   tweetVid = videoPath + userHandle + '_tweetVid.mp4'
   out, err = (ffmpeg
-    .input(inputImage, pattern_type='glob',framerate=.5)
-    .filter('scale', size='hd720')
+    .input(inputImage, pattern_type='glob',framerate=1)
     .output(tweetVid).run()
     )
   return out

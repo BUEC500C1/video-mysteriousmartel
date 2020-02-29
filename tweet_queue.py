@@ -5,7 +5,7 @@ import threading
 # threads to be processed asynchronously and leaving the user open
 # to attend to other tasks
 
-userQueue = Queue(maxsize = 10)
+userQueue = Queue(maxsize = 4)
 
 def twitterQueueUp(userHandle,cycleCount):
   handleCycles = [userHandle, cycleCount]
@@ -21,10 +21,13 @@ def queueMove():
 
   print('Currently processing for ' + str(user[0]))
 
-def twitterThread(userHandle):
+def twitterThread(userHandle, cycleCount):
   pass
   
 if __name__ == "__main__":
     twitterQueueUp('potato',3)
-    # x = threading.Thread(target=twitterThread, args=("potato",))
-    # x.start()
+    handleList = ['MBTA','qikipedia','dog_rates','IvePetThatDog','GameGrumps']
+    cycleList = [2,3,4,3,2]
+    for i in range(len(handleList)):
+      x = threading.Thread(target=twitterThread, args=(handleList[i],cycleList[i],))
+      x.start()
