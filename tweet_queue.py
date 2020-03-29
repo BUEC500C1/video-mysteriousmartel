@@ -1,4 +1,4 @@
-import queue
+from queue import Queue
 import threading
 from word_cloud_generator import cloudGenerate
 from tweet_daily_list import tweetCall, maxIDsearch
@@ -8,7 +8,7 @@ from video_converter import videoConvert
 # threads to be processed asynchronously and leaving the user open
 # to attend to other tasks
 
-userQueue = queue.Queue(maxsize = 4)
+userQueue = Queue(maxsize = 4)
 
 def twitterQueueUp(userHandle,cycleCount):
   handleCycles = [userHandle, cycleCount]
